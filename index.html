@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Enhanced About Us Section - Always Visible</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+      <style>
+            .about-section {
+                  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+                  padding: 3rem 1rem;
+                  position: relative;
+                  overflow: hidden;
+                  font-family: 'Poppins', sans-serif;
+            }
+
+            .about-section::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: radial-gradient(circle, rgba(30, 64, 175, 0.03), transparent);
+                  z-index: 0;
+            }
+
+            .about-container {
+                  position: relative;
+                  z-index: 1;
+            }
+
+            .underline {
+                  width: 60px;
+                  height: 3px;
+                  background: linear-gradient(to right, #1e40af, #3b82f6);
+                  margin: 0 auto 1.5rem;
+            }
+
+            .stats-container {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                  gap: 1rem;
+                  margin-bottom: 2rem;
+            }
+
+            .stat-item {
+                  background: #ffffff;
+                  padding: 1.5rem;
+                  border-radius: 0.75rem;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                  border: 1px solid #e5e7eb;
+                  text-align: center;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .stat-item:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .about-image-container {
+                  position: relative;
+                  width: 100%;
+                  height: 300px;
+                  border-radius: 0.75rem;
+                  overflow: hidden;
+                  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+                  border: 2px solid #e5e7eb;
+            }
+
+            .about-image {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 0.4s ease;
+            }
+
+            .about-image-container:hover .about-image {
+                  transform: scale(1.05);
+            }
+
+            .about-text-container {
+                  background: #ffffff;
+                  padding: 1.5rem;
+                  border-radius: 0.75rem;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+
+            .learn-more-btn {
+                  display: inline-flex;
+                  align-items: center;
+                  background: linear-gradient(45deg, #1e40af, #3b82f6);
+                  padding: 0.75rem 2rem;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  color: #ffffff;
+                  border-radius: 0.5rem;
+                  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .learn-more-btn:hover {
+                  background: linear-gradient(45deg, #1e3a8a, #2563eb);
+                  transform: scale(1.05);
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .learn-more-btn:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+            }
+
+            .learn-more-btn i {
+                  margin-left: 0.5rem;
+                  transition: transform 0.3s ease;
+            }
+
+            .learn-more-btn:hover i {
+                  transform: translateX(5px);
+            }
+
+            @media (min-width: 768px) {
+                  .about-section {
+                        padding: 4rem 2rem;
+                  }
+
+                  .about-image-container {
+                        height: 400px;
+                  }
+
+                  .about-text-container {
+                        padding: 2rem;
+                  }
+
+                  .stats-container {
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1.5rem;
+                  }
+            }
+
+            @media (max-width: 768px) {
+                  .about-section {
+                        padding: 2rem 1rem;
+                  }
+
+                  .stats-container {
+                        grid-template-columns: 1fr;
+                  }
+            }
+
+            /* header */
+            header {
+                  position: fixed;
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 20px 60px;
+                  background-color: rgba(255, 255, 255, 0.98);
+                  backdrop-filter: blur(15px);
+                  -webkit-backdrop-filter: blur(15px);
+                  color: #333;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                  z-index: 1000;
+                  transition: all 0.4s ease;
+            }
+
+            .logo img {
+                  height: 45px;
+                  transition: transform 0.4s ease;
+            }
+
+            .logo img:hover {
+                  transform: scale(1.08);
+            }
+
+            nav {
+                  display: flex;
+                  align-items: center;
+            }
+
+            .nav-menu {
+                  list-style: none;
+                  display: flex;
+                  gap: 35px;
+                  margin: 0;
+                  padding: 0;
+            }
+
+            .nav-menu li a {
+                  text-decoration: none;
+                  color: #2c3e50;
+                  font-weight: 600;
+                  font-size: 16px;
+                  padding: 10px 0;
+                  position: relative;
+                  transition: color 0.4s ease;
+            }
+
+            .nav-menu li a::after {
+                  content: '';
+                  position: absolute;
+                  width: 0;
+                  height: 2.5px;
+                  bottom: 0;
+                  left: 0;
+                  background-color: #3498db;
+                  transition: width 0.4s ease;
+                  border-radius: 2px;
+            }
+
+            .nav-menu li a:hover {
+                  color: #3498db;
+            }
+
+            .nav-menu li a:hover::after {
+                  width: 100%;
+            }
+
+            .menu-toggle {
+                  display: none;
+                  font-size: 24px;
+                  cursor: pointer;
+                  color: #333;
+                  z-index: 1001;
+            }
+
+            /* Mobile Responsive Header */
+            @media (max-width: 768px) {
+                  .menu-toggle {
+                        display: block;
+                  }
+
+                  .nav-menu {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        height: 100vh;
+                        width: 250px;
+                        background-color: rgba(255, 255, 255, 0.98);
+                        backdrop-filter: blur(15px);
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;
+                        padding: 20px;
+                        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+                        transform: translateX(100%);
+                        transition: transform 0.3s ease-in-out;
+                  }
+
+                  .nav-menu.active {
+                        display: flex;
+                        transform: translateX(0);
+                  }
+
+                  .nav-menu li a {
+                        font-size: 18px;
+                        padding: 10px;
+                  }
+
+                  header {
+                        padding: 15px 20px;
+                  }
+            }
+
+            /* hero */
+            .hero {
+                  min-height: 100vh;
+                  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO6eAoAtELsCyn0FTl73PMGHeYz60rQ3w-Qg&s') no-repeat center center/cover;
+                  background-attachment: fixed;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  text-align: center;
+                  padding: 1.5rem;
+                  position: relative;
+                  color: #fff;
+            }
+
+            .hero-content {
+                  opacity: 0;
+                  transform: translateY(20px);
+                  transition: opacity 1s ease-out, transform 1s ease-out;
+            }
+
+            .hero-content.visible {
+                  opacity: 1;
+                  transform: translateY(0);
+            }
+
+            .primary-btn {
+                  background-color: #1e40af;
+                  padding: 0.75rem 2rem;
+                  font-size: 1.125rem;
+                  font-weight: 500;
+                  text-transform: uppercase;
+                  border-radius: 0.375rem;
+                  transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .primary-btn:hover {
+                  background-color: #1e3a8a;
+                  transform: translateY(-2px);
+            }
+
+            .secondary-btn {
+                  background-color: transparent;
+                  border: 2px solid #fff;
+                  padding: 0.75rem 2rem;
+                  font-size: 1.125rem;
+                  font-weight: 500;
+                  text-transform: uppercase;
+                  border-radius: 0.375rem;
+                  transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .secondary-btn:hover {
+                  background-color: rgba(255, 255, 255, 0.1);
+                  transform: translateY(-2px);
+            }
+
+            @media (max-width: 640px) {
+                  .hero h1 {
+                        font-size: 2.5rem;
+                  }
+
+                  .hero p {
+                        font-size: 1.25rem;
+                  }
+            }
+
+            /* service */
+            .services {
+                  padding: 100px 40px;
+                  text-align: center;
+                  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .services h2 {
+                  font-size: 48px;
+                  margin-bottom: 20px;
+                  color: #2c3e50;
+                  font-weight: 800;
+                  letter-spacing: 1.5px;
+                  position: relative;
+                  display: inline-block;
+            }
+
+            .services:hover .underline {
+                  transform: scaleX(1.3);
+            }
+
+            .services-container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  gap: 30px;
+                  max-width: 1400px;
+                  margin: 0 auto;
+            }
+
+            .service-card {
+                  background: rgba(255, 255, 255, 0.95);
+                  border-radius: 20px;
+                  overflow: hidden;
+                  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+                  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                  width: calc(33.333% - 30px);
+                  min-width: 320px;
+                  border: 1px solid rgba(255, 255, 255, 0.2);
+                  backdrop-filter: blur(10px);
+            }
+
+            .service-card:hover {
+                  transform: translateY(-15px) scale(1.02);
+                  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+                  border-color: rgba(52, 152, 219, 0.3);
+            }
+
+            .service-image {
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .service-image img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  transition: transform 0.6s ease;
+            }
+
+            .service-card:hover .service-image img {
+                  transform: scale(1.1);
+            }
+
+            .service-content {
+                  padding: 35px 30px;
+                  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+                  position: relative;
+            }
+
+            .service-content h3 {
+                  font-size: 26px;
+                  margin-bottom: 20px;
+                  color: #2c3e50;
+                  font-weight: 700;
+                  position: relative;
+                  padding-bottom: 18px;
+                  transition: color 0.3s ease;
+            }
+
+            .service-content h3::after {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 40px;
+                  height: 3px;
+                  background: linear-gradient(90deg, #007bff, #00a6ff);
+                  border-radius: 2px;
+            }
+
+            .service-content p {
+                  font-size: 17px;
+                  line-height: 1.8;
+                  color: #555;
+                  margin-bottom: 30px;
+                  transition: color 0.3s ease;
+            }
+
+            .learn-more {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 10px;
+                  padding: 14px 28px;
+                  font-size: 16px;
+                  background: linear-gradient(135deg, #3498db, #2980b9);
+                  color: #fff;
+                  border: none;
+                  border-radius: 30px;
+                  cursor: pointer;
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  font-weight: 600;
+                  text-transform: none;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .learn-more i {
+                  transition: transform 0.3s ease;
+            }
+
+            .learn-more:hover {
+                  background: linear-gradient(90deg, #0056b3, #0082cc);
+                  transform: translateY(-2px);
+            }
+
+            .learn-more:hover i {
+                  transform: translateX(5px);
+            }
+
+            @media (max-width: 768px) {
+                  .services {
+                        padding: 60px 20px;
+                  }
+
+                  .services h2 {
+                        font-size: 32px;
+                  }
+
+                  .service-card {
+                        width: 100%;
+                        margin-bottom: 20px;
+                  }
+
+                  .service-content {
+                        padding: 25px 20px;
+                  }
+
+                  .service-content h3 {
+                        font-size: 22px;
+                  }
+            }
+
+            /* testimonials */
+            .testimonials-section {
+                  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+                  padding: 2rem 1rem;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .testimonials-section::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: radial-gradient(circle, rgba(30, 64, 175, 0.03), transparent);
+                  z-index: 0;
+            }
+
+            .testimonials-container {
+                  max-width: 1280px;
+                  margin: 0 auto;
+                  position: relative;
+                  z-index: 1;
+            }
+
+            .testimonials-section h2 {
+                  font-size: 2rem;
+                  font-weight: 700;
+                  text-align: center;
+                  color: #1f2937;
+                  margin-bottom: 1rem;
+            }
+
+            .testimonials-carousel {
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .testimonial {
+                  display: none;
+                  background: #ffffff;
+                  padding: 1.5rem;
+                  border-radius: 0.75rem;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                  text-align: center;
+                  transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .testimonial.active {
+                  display: block;
+                  opacity: 1;
+                  transform: translateX(0);
+            }
+
+            .client-image {
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin: 0 auto 1rem;
+                  border: 2px solid #e5e7eb;
+                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .client-name {
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: #1f2937;
+                  margin-bottom: 0.25rem;
+            }
+
+            .client-position {
+                  font-size: 1rem;
+                  color: #6b7280;
+                  margin-bottom: 1rem;
+            }
+
+            .star-rating {
+                  display: flex;
+                  justify-content: center;
+                  gap: 0.25rem;
+                  margin-bottom: 1rem;
+            }
+
+            .star {
+                  width: 24px;
+                  height: 24px;
+                  position: relative;
+            }
+
+            .star::before {
+                  content: '★';
+                  font-size: 24px;
+                  color: #d1d5db;
+                  position: absolute;
+            }
+
+            .star.filled::before {
+                  color: #f59e0b;
+            }
+
+            .testimonial-text {
+                  font-size: 1rem;
+                  color: #4b5563;
+                  margin-bottom: 1.5rem;
+                  max-width: 600px;
+                  margin-left: auto;
+                  margin-right: auto;
+            }
+
+            .read-more-btn {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  background: linear-gradient(45deg, #1e40af, #3b82f6);
+                  padding: 0.75rem 2rem;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  color: #ffffff;
+                  border: none;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .read-more-btn:hover {
+                  background: linear-gradient(45deg, #1e3a8a, #2563eb);
+                  transform: scale(1.05);
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .read-more-btn:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+            }
+
+            .read-more-btn::after {
+                  content: '';
+                  display: inline-block;
+                  width: 12px;
+                  height: 12px;
+                  border: solid #ffffff;
+                  border-width: 2px 2px 0 0;
+                  transform: rotate(45deg);
+                  transition: transform 0.3s ease;
+            }
+
+            .read-more-btn:hover::after {
+                  transform: rotate(45deg) translateX(5px);
+            }
+
+            .nav-buttons {
+                  display: flex;
+                  justify-content: center;
+                  gap: 1rem;
+                  margin-top: 1.5rem;
+            }
+
+            .nav-btn {
+                  background: #e5e7eb;
+                  border: none;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  transition: background 0.3s ease, transform 0.2s ease;
+            }
+
+            .nav-btn:hover {
+                  background: #d1d5db;
+                  transform: scale(1.1);
+            }
+
+            .nav-btn:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+            }
+
+            .nav-btn::before {
+                  content: '';
+                  display: inline-block;
+                  width: 12px;
+                  height: 12px;
+                  border: solid #374151;
+                  border-width: 2px 2px 0 0;
+            }
+
+            .nav-btn.prev::before {
+                  transform: rotate(-135deg);
+            }
+
+            .nav-btn.next::before {
+                  transform: rotate(45deg);
+            }
+
+            @media (min-width: 768px) {
+                  .testimonials-section {
+                        padding: 4rem 2rem;
+                  }
+
+                  .testimonials-section h2 {
+                        font-size: 2.5rem;
+                  }
+
+                  .client-image {
+                        width: 120px;
+                        height: 120px;
+                  }
+
+                  .client-name {
+                        font-size: 1.5rem;
+                  }
+
+                  .client-position {
+                        font-size: 1.125rem;
+                  }
+
+                  .testimonial-text {
+                        font-size: 1.125rem;
+                  }
+
+                  .testimonial {
+                        padding: 2rem;
+                  }
+            }
+
+            /* call */
+            .call-section {
+                  padding: 100px 40px;
+                  text-align: center;
+                  background: linear-gradient(135deg, #081947, #4dddbe);
+                  color: white;
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .call-section::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+                  animation: shine 3s infinite linear;
+            }
+
+            @keyframes shine {
+                  0% {
+                        transform: translateX(-100%);
+                  }
+
+                  100% {
+                        transform: translateX(100%);
+                  }
+            }
+
+            .call-section h2 {
+                  font-size: 48px;
+                  margin-bottom: 25px;
+                  font-weight: 700;
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .call-section p {
+                  font-size: 22px;
+                  margin-bottom: 40px;
+                  max-width: 700px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  line-height: 1.6;
+                  opacity: 0.9;
+            }
+
+            .call-button {
+                  padding: 18px 45px;
+                  font-size: 18px;
+                  background: #fff;
+                  color: #2193b0;
+                  border: none;
+                  border-radius: 50px;
+                  cursor: pointer;
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 1.5px;
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .call-button:hover {
+                  transform: translateY(-3px) scale(1.02);
+                  background: #f8f9fa;
+                  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            }
+
+            .call-button:active {
+                  transform: translateY(1px);
+            }
+
+            @media (max-width: 768px) {
+                  .call-section {
+                        padding: 70px 20px;
+                  }
+
+                  .call-section h2 {
+                        font-size: 36px;
+                        margin-bottom: 20px;
+                  }
+
+                  .call-section p {
+                        font-size: 18px;
+                        margin-bottom: 30px;
+                  }
+
+                  .call-button {
+                        padding: 15px 35px;
+                        font-size: 16px;
+                  }
+            }
+
+            /* blog */
+            .blog-section {
+                  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+                  padding: 2rem 1rem;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .blog-section::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: radial-gradient(circle, rgba(30, 64, 175, 0.03), transparent);
+                  z-index: 0;
+            }
+
+            .blog-section::after {
+                  content: '';
+                  position: absolute;
+                  top: -50px;
+                  right: -50px;
+                  width: 200px;
+                  height: 200px;
+                  background: linear-gradient(45deg, rgba(30, 64, 175, 0.1), transparent);
+                  transform: rotate(45deg);
+                  z-index: 0;
+            }
+
+            .blog-container {
+                  max-width: 1280px;
+                  margin: 0 auto;
+                  position: relative;
+                  z-index: 1;
+            }
+
+            .blog-section h2 {
+                  font-size: 2rem;
+                  font-weight: 700;
+                  text-align: center;
+                  color: #1f2937;
+                  margin-bottom: 1rem;
+            }
+
+            .blog-grid {
+                  display: grid;
+                  grid-template-columns: 1fr;
+                  gap: 1.5rem;
+            }
+
+            .blog-post {
+                  background: #ffffff;
+                  border-radius: 0.75rem;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                  overflow: hidden;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .blog-post:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .blog-image-container {
+                  position: relative;
+                  width: 100%;
+                  height: 200px;
+                  overflow: hidden;
+            }
+
+            .blog-image {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 0.4s ease;
+            }
+
+            .blog-post:hover .blog-image {
+                  transform: scale(1.05);
+            }
+
+            .blog-image-container::after {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(30, 64, 175, 0.1);
+                  opacity: 0;
+                  transition: opacity 0.4s ease;
+            }
+
+            .blog-post:hover .blog-image-container::after {
+                  opacity: 1;
+            }
+
+            .blog-content {
+                  padding: 1.5rem;
+            }
+
+            .blog-date {
+                  font-size: 0.875rem;
+                  color: #6b7280;
+                  margin-bottom: 0.5rem;
+            }
+
+            .blog-title {
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: #1f2937;
+                  margin-bottom: 0.5rem;
+            }
+
+            .blog-excerpt {
+                  font-size: 1rem;
+                  color: #4b5563;
+                  margin-bottom: 1rem;
+            }
+
+            .read-more-btn {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  background: linear-gradient(45deg, #1e40af, #3b82f6);
+                  padding: 0.75rem 1.5rem;
+                  font-size: 0.875rem;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  color: #ffffff;
+                  border: none;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .read-more-btn:hover {
+                  background: linear-gradient(45deg, #1e3a8a, #2563eb);
+                  transform: scale(1.05);
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .read-more-btn:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+            }
+
+            .read-more-btn::after {
+                  content: '';
+                  display: inline-block;
+                  width: 10px;
+                  height: 10px;
+                  border: solid #ffffff;
+                  border-width: 2px 2px 0 0;
+                  transform: rotate(45deg);
+                  transition: transform 0.3s ease;
+            }
+
+            .read-more-btn:hover::after {
+                  transform: rotate(45deg) translateX(5px);
+            }
+
+            .load-more-container {
+                  text-align: center;
+                  margin-top: 2rem;
+            }
+
+            .load-more-btn {
+                  background: #e5e7eb;
+                  padding: 0.75rem 2rem;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  color: #374151;
+                  border: none;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  transition: background 0.3s ease, transform 0.2s ease;
+            }
+
+            .load-more-btn:hover {
+                  background: #d1d5db;
+                  transform: scale(1.05);
+            }
+
+            .load-more-btn:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+            }
+
+            .blog-post.hidden {
+                  display: none;
+            }
+
+            @media (min-width: 768px) {
+                  .blog-section {
+                        padding: 4rem 2rem;
+                  }
+
+                  .blog-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 2rem;
+                  }
+
+                  .blog-image-container {
+                        height: 250px;
+                  }
+
+                  .blog-section h2 {
+                        font-size: 2.5rem;
+                  }
+
+                  .blog-title {
+                        font-size: 1.5rem;
+                  }
+
+                  .blog-excerpt {
+                        font-size: 1.125rem;
+                  }
+
+                  .blog-content {
+                        padding: 2rem;
+                  }
+
+                  .read-more-btn {
+                        font-size: 1rem;
+                        padding: 0.75rem 2rem;
+                  }
+            }
+
+            @media (max-width: 768px) {
+                  .blog-image-container {
+                        height: 180px;
+                  }
+
+                  .blog-title {
+                        font-size: 1.125rem;
+                  }
+
+                  .blog-excerpt {
+                        font-size: 0.875rem;
+                  }
+            }
+
+            /* contact */
+            .contact-section {
+                  padding: 120px 0;
+                  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .contact-container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+                  padding: 0 40px;
+                  display: flex;
+                  gap: 80px;
+                  position: relative;
+                  z-index: 1;
+            }
+
+            .contact-info,
+            .contact-form {
+                  flex: 1;
+                  background: white;
+                  padding: 40px;
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            .contact-form::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  width: 150px;
+                  height: 150px;
+                  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 123, 255, 0) 100%);
+                  border-radius: 0 0 0 100%;
+            }
+
+            .contact-info h2 {
+                  font-size: 44px;
+                  color: #1a1a1a;
+                  margin-bottom: 25px;
+                  font-weight: 700;
+                  position: relative;
+                  display: inline-block;
+            }
+
+            .contact-info h2::after {
+                  content: '';
+                  position: absolute;
+                  bottom: -10px;
+                  left: 0;
+                  width: 60px;
+                  height: 3px;
+                  background: #007bff;
+                  border-radius: 2px;
+            }
+
+            .contact-info>p {
+                  font-size: 18px;
+                  color: #666;
+                  margin-bottom: 40px;
+                  line-height: 1.6;
+            }
+
+            .contact-details {
+                  margin-top: 30px;
+            }
+
+            .detail-item {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 30px;
+                  padding: 20px;
+                  background: white;
+                  border-radius: 10px;
+                  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .detail-item:hover {
+                  transform: translateY(-3px);
+                  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .detail-item i {
+                  font-size: 24px;
+                  color: #007bff;
+                  margin-right: 20px;
+                  padding: 15px;
+                  background: rgba(0, 123, 255, 0.1);
+                  border-radius: 50%;
+                  transition: all 0.3s ease;
+            }
+
+            .detail-item:hover i {
+                  background: #007bff;
+                  color: white;
+                  transform: rotate(360deg);
+            }
+
+            .detail-item h4 {
+                  color: #2c3e50;
+                  margin-bottom: 5px;
+                  font-size: 18px;
+                  font-weight: 600;
+            }
+
+            .detail-item p {
+                  color: #6c757d;
+                  margin: 0;
+                  line-height: 1.6;
+            }
+
+            .detail-item p {
+                  font-size: 18px;
+                  color: #444;
+            }
+
+            .contact-form h2 {
+                  font-size: 36px;
+                  color: #2c3e50;
+                  margin-bottom: 30px;
+            }
+
+            .form-group {
+                  margin-bottom: 25px;
+                  position: relative;
+            }
+
+            .form-group label {
+                  display: block;
+                  margin-bottom: 8px;
+                  color: #495057;
+                  font-weight: 500;
+                  font-size: 15px;
+            }
+
+            .form-group .input-icon {
+                  position: absolute;
+                  left: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  color: #6c757d;
+                  transition: color 0.3s ease;
+            }
+
+            .form-group input:focus+.input-icon,
+            .form-group textarea:focus+.input-icon {
+                  color: #007bff;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                  width: 100%;
+                  padding: 16px 45px;
+                  border: 2px solid #e9ecef;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  transition: all 0.3s ease;
+                  background: white;
+                  color: #495057;
+            }
+
+            .form-group input:hover,
+            .form-group textarea:hover {
+                  border-color: #ced4da;
+                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                  border-color: #007bff;
+                  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+                  outline: none;
+            }
+
+            .form-group textarea {
+                  height: 150px;
+                  resize: vertical;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                  border-color: #007bff;
+                  outline: none;
+            }
+
+            .form-group i {
+                  margin-top: 16px;
+            }
+
+            .send-message {
+                  background-color: #007bff;
+                  color: white;
+                  padding: 18px 35px;
+                  border: none;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                  text-transform: uppercase;
+                  font-weight: 600;
+                  letter-spacing: 1.2px;
+                  position: relative;
+                  overflow: hidden;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+            }
+
+            .send-message:hover {
+                  background-color: #0056b3;
+                  transform: translateY(-2px);
+                  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+            }
+
+            .send-message:active {
+                  transform: translateY(1px);
+            }
+
+            .send-message:hover {
+                  background-color: #0056b3;
+            }
+
+            @media (max-width: 768px) {
+                  .contact-container {
+                        flex-direction: column;
+                  }
+
+                  .contact-info h2 {
+                        font-size: 36px;
+                  }
+
+                  .contact-form h2 {
+                        font-size: 32px;
+                  }
+
+                  .contact-section {
+                        padding: 60px 0;
+                  }
+            }
+
+            /* footer */
+            footer {
+                  background: linear-gradient(135deg, #10245c 0%, #3366b8 100%);
+                  color: #fff;
+                  padding: 40px 20px 20px;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            footer::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: url('https://via.placeholder.com/1920x1080?text=Background+Image') no-repeat center/cover;
+                  opacity: 0.1;
+                  z-index: 0;
+            }
+
+            .footer-top {
+                  margin-bottom: 40px;
+                  text-align: center;
+            }
+
+            .newsletter {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+            }
+
+            .newsletter input {
+                  padding: 12px 20px;
+                  border: none;
+                  border-radius: 25px;
+                  font-size: 14px;
+                  width: 100%;
+                  max-width: 300px;
+                  box-sizing: border-box;
+                  z-index: 100;
+            }
+
+            .newsletter button {
+                  padding: 0.75rem 1.5rem;
+                  background: linear-gradient(45deg, #1e40af, #3b82f6);
+                  border: none;
+                  border-radius: 1.5rem;
+                  color: #ffffff;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+                  z-index: 100;
+            }
+
+            .newsletter button:hover {
+                  background: linear-gradient(45deg, #1e3a8a, #2563eb);
+                  transform: scale(1.05);
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .newsletter button:focus {
+                  outline: none;
+                  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            }
+
+            .footer-container {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 30px;
+                  margin-bottom: 20px;
+                  position: relative;
+                  z-index: 1;
+            }
+
+            .footer-section {
+                  text-align: center;
+            }
+
+            .footer-section h4 {
+                  font-size: 18px;
+                  margin-bottom: 15px;
+                  color: #d4a373;
+            }
+
+            .footer-section ul {
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+            }
+
+            .footer-section ul li {
+                  margin-bottom: 10px;
+            }
+
+            .footer-section ul li a {
+                  color: #fff;
+                  text-decoration: none;
+                  transition: color 0.3s ease;
+            }
+
+            .footer-section ul li a:hover {
+                  color: #d4a373;
+            }
+
+            .read-more {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 5px;
+                  color: #d4a373;
+                  text-decoration: none;
+                  font-size: 14px;
+                  transition: color 0.3s ease;
+            }
+
+            .read-more:hover {
+                  color: #b7875e;
+            }
+
+            .read-more i {
+                  transition: transform 0.3s ease;
+            }
+
+            .read-more:hover i {
+                  transform: translateX(3px);
+            }
+
+            .footer-bottom {
+                  text-align: center;
+                  padding-top: 20px;
+                  border-top: 1px solid #444;
+                  font-size: 12px;
+                  color: #bbb;
+            }
+
+            .partners {
+                  margin-bottom: 10px;
+            }
+
+            .partners a {
+                  color: #d4a373;
+                  text-decoration: none;
+                  margin: 0 5px;
+                  transition: color 0.3s ease;
+            }
+
+            .partners a:hover {
+                  color: #b7875e;
+            }
+
+            .legal-links a {
+                  color: #bbb;
+                  text-decoration: none;
+                  margin: 0 10px;
+                  transition: color 0.3s ease;
+            }
+
+            .legal-links a:hover {
+                  color: #d4a373;
+            }
+
+            /* Desktop Styles */
+            @media (min-width: 768px) {
+                  .footer-top {
+                        margin-bottom: 60px;
+                  }
+
+                  .newsletter {
+                        flex-direction: row;
+                        justify-content: center;
+                        gap: 10px;
+                  }
+
+                  .newsletter input {
+                        width: 250px;
+                  }
+
+                  .footer-container {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 40px;
+                  }
+
+                  .footer-section {
+                        text-align: left;
+                        flex: 1;
+                  }
+
+                  .footer-section h4 {
+                        font-size: 20px;
+                  }
+
+                  .footer-bottom {
+                        font-size: 14px;
+                  }
+            }
+
+            /* Larger Screens */
+            @media (min-width: 1200px) {
+                  footer {
+                        padding: 60px 80px 30px;
+                  }
+
+                  .footer-container {
+                        gap: 60px;
+                  }
+
+                  .footer-section h4 {
+                        font-size: 22px;
+                  }
+
+                  .newsletter input {
+                        width: 300px;
+                  }
+            }
+      </style>
+</head>
+
+<body>
+      <header>
+            <div class="logo">
+                  <img src="https://cdn6.f-cdn.com/contestentries/2422585/75097634/667fc3bc7e642_thumb900.jpg" alt="MBCM Building and Maintenance Logo">
+            </div>
+            <nav>
+                  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+                  <ul class="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                  </ul>
+            </nav>
+      </header>
+
+      <section class="hero" id="home">
+            <div class="hero-content">
+                  <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight">MBCM Building and Maintenance</h1>
+                  <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Transforming spaces with expert commercial and residential construction in Sydney for over 30 years.
+                  </p>
+                  <div class="flex space-x-4">
+                        <button class="primary-btn text-white" onclick="window.location.href='#services'">
+                              Explore Services
+                        </button>
+                        <button class="secondary-btn text-white" onclick="window.location.href='#contact'">
+                              Contact Us
+                        </button>
+                  </div>
+            </div>
+      </section>
+
+      <section class="about-section" id="about">
+            <div class="max-w-7xl mx-auto about-container">
+                  <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">About Us</h2>
+                  <div class="underline"></div>
+                  <div class="stats-container">
+                        <div class="stat-item">
+                              <h4 class="text-3xl font-bold text-blue-600 mb-2">30+</h4>
+                              <p class="text-gray-600">Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                              <h4 class="text-3xl font-bold text-blue-600 mb-2">200+</h4>
+                              <p class="text-gray-600">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                              <h4 class="text-3xl font-bold text-blue-600 mb-2">100%</h4>
+                              <p class="text-gray-600">Client Satisfaction</p>
+                        </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                        <div class="w-full md:w-1/2 about-image-container">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO6eAoAtELsCyn0FTl73PMGHeYz60rQ3w-Qg&s"
+                                    alt="Construction project" class="about-image">
+                        </div>
+                        <div class="w-full md:w-1/2 about-text-container">
+                              <p class="text-base md:text-lg text-gray-700 mb-4 font-semibold">Building Excellence in Sydney</p>
+                              <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4">Quality Construction and Renovation</h3>
+                              <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
+                                    With 30 years of expertise, MBCM Building and Maintenance delivers top-tier commercial and
+                                    residential construction services in Sydney. From bathroom and kitchen renovations to office
+                                    fit-outs and refurbishments, our skilled team ensures precision, quality, and client satisfaction
+                                    in every project.
+                              </p>
+                              <button class="learn-more-btn">
+                                    Learn More
+                                    <i class="fas fa-arrow-right"></i>
+                              </button>
+                        </div>
+                  </div>
+            </div>
+      </section>
+
+      <section class="services" id="services">
+            <h2>Our Services</h2>
+            <div class="underline"></div>
+            <div class="services-container">
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqebyO3y5301ZMT1G7vqhY6tDoxjFXop1u_g&s" alt="Commercial Work">
+                        </div>
+                        <div class="service-content">
+                              <h3>Commercial Work</h3>
+                              <p>We provide comprehensive construction services for commercial spaces, delivering high-quality
+                                    results tailored to your business needs.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgjc2KXKRf7Vh_vr5eelw8nvD-hTdrf6RKSQ&s" alt="Residential">
+                        </div>
+                        <div class="service-content">
+                              <h3>Residential Construction</h3>
+                              <p>Transform your home with our expert residential construction services, from custom builds to
+                                    renovations, designed for comfort and style.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnodAXr8NYjLTftU2-Kwp8tIJuw4r3ufwt4A&s" alt="Bathroom Renovations">
+                        </div>
+                        <div class="service-content">
+                              <h3>Bathroom Renovations</h3>
+                              <p>Create modern, functional bathrooms with our expert renovation services, combining style and
+                                    practicality.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdXgPwyka6vV9R-XdJBomd9Ez5DyZZkuB0Mw&s" alt="Kitchen Renovations">
+                        </div>
+                        <div class="service-content">
+                              <h3>Kitchen Renovations</h3>
+                              <p>Revamp your kitchen with our bespoke renovation services, designed to enhance functionality and
+                                    aesthetics.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSptXeb8sYNs3etm4fwP6a5YQ81SHK7TFBww&s" alt="Refurbishments">
+                        </div>
+                        <div class="service-content">
+                              <h3>Refurbishments</h3>
+                              <p>Refresh and modernize your spaces with our refurbishment services, tailored to meet your vision and
+                                    budget.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://images.squarespace-cdn.com/content/v1/61730a7d9c7a0c57e52d6f0b/dfc46856-7e43-401b-b941-ae85cedb0548/AdobeStock_170135481.jpeg" alt="Project Management">
+                        </div>
+                        <div class="service-content">
+                              <h3>Project Management</h3>
+                              <p>Our expert project management ensures seamless execution, delivering projects on time and within
+                                    budget.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+                  <div class="service-card">
+                        <div class="service-image">
+                              <img src="https://media.licdn.com/dms/image/v2/C5112AQH4KC85iQofAw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520206086625?e=2147483647&v=beta&t=EH0IMJ9CH4gMSGZogYksX5klCzL2cm5fXL0fOruuq5Y" alt="Office Fit Outs">
+                        </div>
+                        <div class="service-content">
+                              <h3>Office Fit Outs</h3>
+                              <p>Design and build inspiring office spaces with our fit-out services, optimized for productivity and
+                                    style.</p>
+                              <button class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                  </div>
+            </div>
+      </section>
+
+      <section class="testimonials-section">
+            <div class="testimonials-container">
+                  <h2>Client Testimonials</h2>
+                  <div class="underline"></div>
+                  <div class="testimonials-carousel">
+                        <div class="testimonial active">
+                              <img src="https://t4.ftcdn.net/jpg/02/14/74/61/360_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg"
+                                    alt="Client 1" class="client-image">
+                              <h3 class="client-name">John Doe</h3>
+                              <p class="client-position">Business Owner, Sydney</p>
+                              <div class="star-rating">
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                              </div>
+                              <p class="testimonial-text">
+                                    "MBCM transformed our office space with exceptional quality and professionalism. The project was
+                                    completed on time and exceeded our expectations!"
+                              </p>
+                              <button class="read-more-btn">Read More</button>
+                        </div>
+                        <div class="testimonial">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfNqGSkt8oYPyD5Q0O-E1F3HAm7JGaC813Mg&s"
+                                    alt="Client 2" class="client-image">
+                              <h3 class="client-name">Sarah Smith</h3>
+                              <p class="client-position">Homeowner, Sydney</p>
+                              <div class="star-rating">
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star"></span>
+                              </div>
+                              <p class="testimonial-text">
+                                    "The bathroom renovation by MBCM was flawless. Their attention to detail and customer service made
+                                    the process seamless."
+                              </p>
+                              <button class="read-more-btn">Read More</button>
+                        </div>
+                        <div class="testimonial">
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9pLXzA9hBra50yadnlITAYDamBA8x12krsw&s"
+                                    alt="Client 3" class="client-image">
+                              <h3 class="client-name">Michael Chen</h3>
+                              <p class="client-position">Property Manager, Sydney</p>
+                              <div class="star-rating">
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                                    <span class="star filled"></span>
+                              </div>
+                              <p class="testimonial-text">
+                                    "MBCM’s project management for our commercial refurbishment was outstanding. They delivered on time
+                                    and within budget."
+                              </p>
+                              <button class="read-more-btn">Read More</button>
+                        </div>
+                  </div>
+                  <div class="nav-buttons">
+                        <button class="nav-btn prev" aria-label="Previous testimonial"></button>
+                        <button class="nav-btn next" aria-label="Next testimonial"></button>
+                  </div>
+            </div>
+      </section>
+
+      <section class="call-section">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Contact us today to discuss your construction or renovation needs and discover how MBCM can bring your vision
+                  to life.</p>
+            <button class="call-button">Contact Us Now</button>
+      </section>
+
+      <section class="blog-section" id="blog">
+            <div class="blog-container">
+                  <h2>Our Blog</h2>
+                  <div class="underline"></div>
+                  <div class="blog-grid">
+                        <article class="blog-post">
+                              <div class="blog-image-container">
+                                    <img src="https://assets.mailshake.com/wp-content/uploads/2021/06/09035526/1489380_Blog-Image_4_110822.jpg" alt="Blog Post 1"
+                                          class="blog-image">
+                              </div>
+                              <div class="blog-content">
+                                    <time class="blog-date" datetime="2025-04-15">April 15, 2025</time>
+                                    <h3 class="blog-title">Trends in Modern Home Renovations</h3>
+                                    <p class="blog-excerpt">
+                                          Explore the latest trends in bathroom and kitchen renovations transforming Sydney homes.
+                                    </p>
+                                    <button class="read-more-btn">Read More</button>
+                              </div>
+                        </article>
+                        <article class="blog-post">
+                              <div class="blog-image-container">
+                                    <img src="https://leadgenera.com/wp-content/uploads/2020/06/How-To-Make-Your-Blog-a-Lead-Generation-Tool-Lead-Genera.png" alt="Blog Post 2"
+                                          class="blog-image">
+                              </div>
+                              <div class="blog-content">
+                                    <time class="blog-date" datetime="2025-03-20">March 20, 2025</time>
+                                    <h3 class="blog-title">Designing Productive Office Spaces</h3>
+                                    <p class="blog-excerpt">
+                                          Learn how our office fit-outs enhance workplace efficiency and aesthetics.
+                                    </p>
+                                    <button class="read-more-btn">Read More</button>
+                              </div>
+                        </article>
+                        <article class="blog-post">
+                              <div class="blog-image-container">
+                                    <img src="https://www.spiralytics.com/wp-content/uploads/2020/08/Spira_Pillar3-12_Blog-Banner.png" alt="Blog Post 3"
+                                          class="blog-image">
+                              </div>
+                              <div class="blog-content">
+                                    <time class="blog-date" datetime="2025-02-10">February 10, 2025</time>
+                                    <h3 class="blog-title">Sustainable Construction Practices</h3>
+                                    <p class="blog-excerpt">
+                                          Discover how MBCM incorporates eco-friendly materials and methods in our projects.
+                                    </p>
+                                    <button class="read-more-btn">Read More</button>
+                              </div>
+                        </article>
+                        <article class="blog-post hidden">
+                              <div class="blog-image-container">
+                                    <img src="https://static.startuptalky.com/2022/05/Blogs-to-generate-leads-StartupTalky.jpg" alt="Blog Post 4"
+                                          class="blog-image">
+                              </div>
+                              <div class="blog-content">
+                                    <time class="blog-date" datetime="2025-01-25">January 25, 2025</time>
+                                    <h3 class="blog-title">Effective Project Management Tips</h3>
+                                    <p class="blog-excerpt">
+                                          How our project management ensures seamless construction projects.
+                                    </p>
+                                    <button class="read-more-btn">Read More</button>
+                              </div>
+                        </article>
+                  </div>
+                  <div class="load-more-container">
+                        <button class="load-more-btn">Load More</button>
+                  </div>
+            </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+            <div class="contact-container">
+                  <div class="contact-info">
+                        <h2>Get in Touch</h2>
+                        <div class="detail-item">
+                              <i class="fas fa-map-marker-alt"></i>
+                              <div>
+                                    <h4>Our Location</h4>
+                                    <p>456 Construction Road, Suite 200<br>Sydney, NSW 2000</p>
+                              </div>
+                        </div>
+                        <div class="detail-item">
+                              <i class="fas fa-phone-alt"></i>
+                              <div>
+                                    <h4>Call Us</h4>
+                                    <p>+61 (2) 9876-5432</p>
+                              </div>
+                        </div>
+                        <div class="detail-item">
+                              <i class="fas fa-envelope"></i>
+                              <div>
+                                    <h4>Email Us</h4>
+                                    <p>info@mbcmbuilding.com.au</p>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="contact-form">
+                        <form>
+                              <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" placeholder="Enter your name">
+                                    <i class="fas fa-user input-icon"></i>
+                              </div>
+                              <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" placeholder="Enter your email">
+                                    <i class="fas fa-envelope input-icon"></i>
+                              </div>
+                              <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" placeholder="Enter subject">
+                                    <i class="fas fa-tag input-icon"></i>
+                              </div>
+                              <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+                              </div>
+                              <button type="submit" class="send-message">
+                                    Send Message
+                              </button>
+                        </form>
+                  </div>
+            </div>
+      </section>
+
+      <footer>
+            <div class="footer-top">
+                  <div class="newsletter">
+                        <input type="email" placeholder="Enter email address" required>
+                        <button type="submit">Subscribe</button>
+                  </div>
+            </div>
+            <div class="footer-container">
+                  <div class="footer-section company">
+                        <h4>MBCM Building and Maintenance</h4>
+                        <p>A trusted name in Sydney's construction industry, delivering quality commercial and residential projects
+                              for over 30 years.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="footer-section discover">
+                        <h4>Discover</h4>
+                        <ul>
+                              <li><a href="#">Our Projects</a></li>
+                              <li><a href="#">Services</a></li>
+                              <li><a href="#">Client Stories</a></li>
+                              <li><a href="#">Contact Us</a></li>
+                        </ul>
+                  </div>
+                  <div class="footer-section about">
+                        <h4>About</h4>
+                        <ul>
+                              <li><a href="#">Our Team</a></li>
+                              <li><a href="#">Careers</a></li>
+                              <li><a href="#">Blog</a></li>
+                        </ul>
+                  </div>
+                  <div class="footer-section social">
+                        <h4>Social</h4>
+                        <ul>
+                              <li><a href="#">Facebook</a></li>
+                              <li><a href="#">Instagram</a></li>
+                              <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                  </div>
+            </div>
+            <div class="footer-bottom">
+                  <div class="partners">
+                        <span>Our Partners:</span>
+                        <a href="#">Partner 01</a> <a href="#">Partner 02</a> <a href="#">Partner 03</a> <a href="#">See All</a>
+                  </div>
+                  <p>© 2025 MBCM Building and Maintenance. All rights reserved | Made with ❤️ by xAI</p>
+                  <div class="legal-links">
+                        <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Compliances</a>
+                  </div>
+            </div>
+      </footer>
+
+      <script>
+            const testimonials = document.querySelectorAll('.testimonial');
+            const prevBtn = document.querySelector('.nav-btn.prev');
+            const nextBtn = document.querySelector('.nav-btn.next');
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                  testimonials.forEach((testimonial, i) => {
+                        testimonial.classList.remove('active');
+                        if (i === index) {
+                              testimonial.classList.add('active');
+                        }
+                  });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                  currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                  showTestimonial(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                  currentIndex = (currentIndex + 1) % testimonials.length;
+                  showTestimonial(currentIndex);
+            });
+
+            showTestimonial(currentIndex);
+
+            document.addEventListener('DOMContentLoaded', () => {
+                  const loadMoreBtn = document.querySelector('.load-more-btn');
+                  const hiddenPosts = document.querySelectorAll('.blog-post.hidden');
+
+                  if (hiddenPosts.length === 0) {
+                        loadMoreBtn.style.display = 'none';
+                  }
+
+                  loadMoreBtn.addEventListener('click', () => {
+                        hiddenPosts.forEach(post => {
+                              post.classList.remove('hidden');
+                        });
+                        loadMoreBtn.style.display = 'none';
+                  });
+
+                  const heroContent = document.querySelector('.hero-content');
+                  setTimeout(() => {
+                        heroContent.classList.add('visible');
+                  }, 100);
+
+                  const menuToggle = document.querySelector('.menu-toggle');
+                  const navMenu = document.querySelector('.nav-menu');
+
+                  menuToggle.addEventListener('click', () => {
+                        navMenu.classList.toggle('active');
+                        // Toggle between hamburger and close icon
+                        menuToggle.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                  });
+
+                  const navLinks = document.querySelectorAll('.nav-menu a');
+                  navLinks.forEach(link => {
+                        link.addEventListener('click', e => {
+                              e.preventDefault();
+                              const targetId = link.getAttribute('href');
+                              const targetSection = document.querySelector(targetId);
+                              targetSection.scrollIntoView({
+                                    behavior: 'smooth'
+                              });
+                              // Close menu on link click in mobile view
+                              if (navMenu.classList.contains('active')) {
+                                    navMenu.classList.remove('active');
+                                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                              }
+                        });
+                  });
+            });
+      </script>
+</body>
+
+</html>
